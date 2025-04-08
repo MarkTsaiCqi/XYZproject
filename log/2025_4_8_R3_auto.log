@@ -1,0 +1,96 @@
+2025-04-08 15:39:51,762 INFO [base.py(__init__:15)] - 正在初始化，driver对象：<selenium.webdriver.chrome.webdriver.WebDriver (session="2940580bc81fbf1110ea83f7df5538f5")>
+2025-04-08 15:39:51,763 INFO [base.py(base_click:63)] - 正在初始化执行点击方法：('xpath', '/html/body/div[3]/div/div[2]/div/div[1]/div/div[2]/div/div[5]/button')
+2025-04-08 15:39:51,763 INFO [base.py(find_element:21)] - 正在查找定位元素位置：('xpath', '/html/body/div[3]/div/div[2]/div/div[1]/div/div[2]/div/div[5]/button')
+2025-04-08 15:40:01,899 INFO [base.py(find_element:26)] - 查找元素定位失败：('xpath', '/html/body/div[3]/div/div[2]/div/div[1]/div/div[2]/div/div[5]/button')
+2025-04-08 15:40:01,902 INFO [base.py(find_element:27)] - -------定位元素失败，抛出的错误数据-------：Message: 
+Stacktrace:
+	GetHandleVerifier [0x00007FF650651F55+78133]
+	GetHandleVerifier [0x00007FF650651FB0+78224]
+	(No symbol) [0x00007FF6504191BA]
+	(No symbol) [0x00007FF65046F19D]
+	(No symbol) [0x00007FF65046F44C]
+	(No symbol) [0x00007FF6504C23D7]
+	(No symbol) [0x00007FF65049719F]
+	(No symbol) [0x00007FF6504BF21F]
+	(No symbol) [0x00007FF650496F33]
+	(No symbol) [0x00007FF650460358]
+	(No symbol) [0x00007FF6504610C3]
+	GetHandleVerifier [0x00007FF65091BA8D+3001453]
+	GetHandleVerifier [0x00007FF650915E72+2977874]
+	GetHandleVerifier [0x00007FF65093497D+3103581]
+	GetHandleVerifier [0x00007FF65066C7EA+186826]
+	GetHandleVerifier [0x00007FF6506743FF+218591]
+	GetHandleVerifier [0x00007FF650659D94+110452]
+	GetHandleVerifier [0x00007FF650659F42+110882]
+	GetHandleVerifier [0x00007FF650640379+5465]
+	BaseThreadInitThunk [0x00007FFA4A777374+20]
+	RtlUserThreadStart [0x00007FFA4B59CC91+33]
+
+2025-04-08 15:42:07,949 INFO [base.py(__init__:15)] - 正在初始化，driver对象：<selenium.webdriver.chrome.webdriver.WebDriver (session="04dfa4f528367ef64bd120fb9df565b4")>
+2025-04-08 15:42:07,949 INFO [base.py(base_click:63)] - 正在初始化执行点击方法：('xpath', '/html/body/div[3]/div/div[2]/div/div[1]/div/div[2]/div/div[5]/button')
+2025-04-08 15:42:07,949 INFO [base.py(find_element:21)] - 正在查找定位元素位置：('xpath', '/html/body/div[3]/div/div[2]/div/div[1]/div/div[2]/div/div[5]/button')
+2025-04-08 15:42:18,120 INFO [base.py(find_element:26)] - 查找元素定位失败：('xpath', '/html/body/div[3]/div/div[2]/div/div[1]/div/div[2]/div/div[5]/button')
+2025-04-08 15:42:18,128 INFO [base.py(find_element:27)] - -------定位元素失败，抛出的错误数据-------：Message: 
+Stacktrace:
+	GetHandleVerifier [0x00007FF650651F55+78133]
+	GetHandleVerifier [0x00007FF650651FB0+78224]
+	(No symbol) [0x00007FF6504191BA]
+	(No symbol) [0x00007FF65046F19D]
+	(No symbol) [0x00007FF65046F44C]
+	(No symbol) [0x00007FF6504C23D7]
+	(No symbol) [0x00007FF65049719F]
+	(No symbol) [0x00007FF6504BF21F]
+	(No symbol) [0x00007FF650496F33]
+	(No symbol) [0x00007FF650460358]
+	(No symbol) [0x00007FF6504610C3]
+	GetHandleVerifier [0x00007FF65091BA8D+3001453]
+	GetHandleVerifier [0x00007FF650915E72+2977874]
+	GetHandleVerifier [0x00007FF65093497D+3103581]
+	GetHandleVerifier [0x00007FF65066C7EA+186826]
+	GetHandleVerifier [0x00007FF6506743FF+218591]
+	GetHandleVerifier [0x00007FF650659D94+110452]
+	GetHandleVerifier [0x00007FF650659F42+110882]
+	GetHandleVerifier [0x00007FF650640379+5465]
+	BaseThreadInitThunk [0x00007FFA4A777374+20]
+	RtlUserThreadStart [0x00007FFA4B59CC91+33]
+
+2025-04-08 15:44:14,566 INFO [base.py(__init__:15)] - 正在初始化，driver对象：<selenium.webdriver.chrome.webdriver.WebDriver (session="fc2c55f244ae9de38c74600a74f498c9")>
+2025-04-08 15:44:14,566 INFO [base.py(base_click:63)] - 正在初始化执行点击方法：('xpath', '/html/body/div[3]/div/div[2]/div/div[1]/div/div[2]/div/div[5]/button')
+2025-04-08 15:44:14,567 INFO [base.py(find_element:21)] - 正在查找定位元素位置：('xpath', '/html/body/div[3]/div/div[2]/div/div[1]/div/div[2]/div/div[5]/button')
+2025-04-08 15:44:24,966 INFO [base.py(find_element:26)] - 查找元素定位失败：('xpath', '/html/body/div[3]/div/div[2]/div/div[1]/div/div[2]/div/div[5]/button')
+2025-04-08 15:44:24,969 INFO [base.py(find_element:27)] - -------定位元素失败，抛出的错误数据-------：Message: 
+Stacktrace:
+	GetHandleVerifier [0x00007FF650651F55+78133]
+	GetHandleVerifier [0x00007FF650651FB0+78224]
+	(No symbol) [0x00007FF6504191BA]
+	(No symbol) [0x00007FF65046F19D]
+	(No symbol) [0x00007FF65046F44C]
+	(No symbol) [0x00007FF6504C23D7]
+	(No symbol) [0x00007FF65049719F]
+	(No symbol) [0x00007FF6504BF21F]
+	(No symbol) [0x00007FF650496F33]
+	(No symbol) [0x00007FF650460358]
+	(No symbol) [0x00007FF6504610C3]
+	GetHandleVerifier [0x00007FF65091BA8D+3001453]
+	GetHandleVerifier [0x00007FF650915E72+2977874]
+	GetHandleVerifier [0x00007FF65093497D+3103581]
+	GetHandleVerifier [0x00007FF65066C7EA+186826]
+	GetHandleVerifier [0x00007FF6506743FF+218591]
+	GetHandleVerifier [0x00007FF650659D94+110452]
+	GetHandleVerifier [0x00007FF650659F42+110882]
+	GetHandleVerifier [0x00007FF650640379+5465]
+	BaseThreadInitThunk [0x00007FFA4A777374+20]
+	RtlUserThreadStart [0x00007FFA4B59CC91+33]
+
+2025-04-08 15:48:55,367 INFO [base.py(__init__:15)] - 正在初始化，driver对象：<selenium.webdriver.chrome.webdriver.WebDriver (session="9370687801875312691fe9b9de1596d9")>
+2025-04-08 15:48:55,368 INFO [base.py(base_click:63)] - 正在初始化执行点击方法：('xpath', "//*[@id='root']/div/div/div/div[1]/div/div/div[2]/div/span")
+2025-04-08 15:48:55,368 INFO [base.py(find_element:21)] - 正在查找定位元素位置：('xpath', "//*[@id='root']/div/div/div/div[1]/div/div/div[2]/div/span")
+2025-04-08 15:48:55,671 INFO [base.py(base_input:73)] - 正在初始化执行输入方法：('xpath', '/html/body/div[2]/div/div[2]/div/div[1]/div/div[2]/div/div[3]/div[1]/div/span/input')
+2025-04-08 15:48:55,672 INFO [base.py(find_element:21)] - 正在查找定位元素位置：('xpath', '/html/body/div[2]/div/div[2]/div/div[1]/div/div[2]/div/div[3]/div[1]/div/span/input')
+2025-04-08 15:48:56,010 INFO [base.py(base_click:63)] - 正在初始化执行点击方法：('xpath', '/html/body/div[2]/div/div[2]/div/div[1]/div/div[2]/div/div[3]/div[1]/div/span/span[2]/button')
+2025-04-08 15:48:56,010 INFO [base.py(find_element:21)] - 正在查找定位元素位置：('xpath', '/html/body/div[2]/div/div[2]/div/div[1]/div/div[2]/div/div[3]/div[1]/div/span/span[2]/button')
+2025-04-08 15:48:56,152 INFO [base.py(base_input:73)] - 正在初始化执行输入方法：('xpath', '/html/body/div[3]/div/div[2]/div/div[1]/div/div[2]/div/div[2]/div/div/span/input')
+2025-04-08 15:48:56,164 INFO [base.py(find_element:21)] - 正在查找定位元素位置：('xpath', '/html/body/div[3]/div/div[2]/div/div[1]/div/div[2]/div/div[2]/div/div/span/input')
+2025-04-08 15:48:59,887 INFO [base.py(base_click:63)] - 正在初始化执行点击方法：('xpath', '/html/body/div[3]/div/div[2]/div/div[1]/div/div[2]/div/div[5]/button')
+2025-04-08 15:49:00,002 INFO [base.py(find_element:21)] - 正在查找定位元素位置：('xpath', '/html/body/div[3]/div/div[2]/div/div[1]/div/div[2]/div/div[5]/button')
+2025-04-08 15:49:03,399 INFO [base.py(find_element:21)] - 正在查找定位元素位置：('xpath', "//*[@id='root']/div/div/div/div[1]/div[1]/div/div[2]/div/div/span[1]")

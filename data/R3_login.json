@@ -1,0 +1,20 @@
+{
+  "loginone": [
+    {
+      "desc": "下单成功",
+      "search_value": "小米",
+      "pwd": "123456",
+      "nickname": "13600001111"
+    }
+  ],
+  "login": [
+    {
+      "username": "admin",
+      "password": "runde123456"
+    },
+    {
+      "username": "Mmr2a",
+      "password": "123456"
+    }
+  ]
+}

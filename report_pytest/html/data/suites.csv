@@ -1,0 +1,5 @@
+"Status","Name","Duration in ms","Description"
+"passed","script_allure.test1_login.TestWEBLogin#test_object","0",""
+"passed","script_allure.test1_login.TestWEBLogin#test_login","4869",""
+"passed","script_allure.test1_login.TestWEBLogin#test_test01","0",""
+"failed","script_allure.test1_login.TestWEBLogin#test_test02","0",""

@@ -1,0 +1,76 @@
+{
+  "uid" : "62316179ffc9f476",
+  "name" : "test_test02",
+  "fullName" : "script_allure.test1_login.TestWEBLogin#test_test02",
+  "historyId" : "83acf6fea795aeb3ceeefa564b96bb6d",
+  "time" : {
+    "start" : 1671438525303,
+    "stop" : 1671438525303,
+    "duration" : 0
+  },
+  "status" : "failed",
+  "statusMessage" : "AssertionError: assert 1 == 2",
+  "statusTrace" : "self = <test1_login.TestWEBLogin object at 0x000001C651974F40>\n\n    def test_test02(self):\n        a,b = 1,2\n        print(\"44444444444444444444\")\n>       assert (a == b)\nE       assert 1 == 2\n\nscript_allure\\test1_login.py:42: AssertionError",
+  "flaky" : false,
+  "beforeStages" : [ {
+    "name" : "getdriver",
+    "time" : {
+      "start" : 1671438525302,
+      "stop" : 1671438525302,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  } ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "script_allure"
+  }, {
+    "name" : "suite",
+    "value" : "test1_login"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestWEBLogin"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-TSJQ5MP"
+  }, {
+    "name" : "thread",
+    "value" : "14108-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "script_allure.test1_login"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Product defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ ]
+  },
+  "source" : "62316179ffc9f476.json",
+  "parameterValues" : [ ]
+}
