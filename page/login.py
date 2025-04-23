@@ -43,3 +43,48 @@ class LoginPage:
         self.click_email_next()  # 新增：點擊箭頭按鈕
         self.input_password(password)
         self.submit_login_with_enter()
+
+    # 定義元素定位器
+    CREATE_AGENT_BUTTON = By.XPATH, "//span[contains(text(), 'Create Agent')]"
+    AGENT_TYPE_RADIO = By.XPATH, "//input[@name=':r8:'][@value='1']"  # 預設的 Agent Type
+    NEXT_BUTTON = By.XPATH, "//button[contains(span/text(), 'Next')]"
+    UPLOAD_AVATAR_BUTTON = By.XPATH, "//span[contains(text(), 'Upload avatar')]"
+    AVATAR_INPUT = By.CSS_SELECTOR, "input[type='file']"  # 假設的檔案上傳 input
+    OK_BUTTON = By.XPATH, "//button[contains(span/text(), 'OK')]"
+    NAME_INPUT = By.ID, "name"
+    AGENT_IDENTITY_TYPE = By.XPATH, "//div[contains(text(), 'Private Agent')]"
+    
+    # 更新 E-mail 行的定位器
+    EMAIL_ROW = By.XPATH, "//div[contains(@class, 'row-between p-20')]//span"
+
+    def create_agent(self, name, avatar_path, email, token):
+        """創建 agent 的流程"""
+        # 點擊 Create Agent 按鈕
+        self.driver.base_click(self.CREATE_AGENT_BUTTON)
+
+        # 選擇預設的 Agent Type
+        self.driver.base_click(self.AGENT_TYPE_RADIO)
+
+        # 點擊 Next 按鈕
+        self.driver.base_click(self.NEXT_BUTTON)
+
+        # 上傳 avatar
+        self.driver.base_click(self.UPLOAD_AVATAR_BUTTON)
+        self.driver.base_input(self.AVATAR_INPUT, avatar_path)  # 上傳檔案
+
+        # 點擊 OK 按鈕
+        self.driver.base_click(self.OK_BUTTON)
+
+        # 輸入 Name
+        self.driver.base_input(self.NAME_INPUT, name)
+
+        # 選擇 Private Agent
+        self.driver.base_click(self.AGENT_IDENTITY_TYPE)
+
+        # 拍照（這裡可以根據需要加入截圖的邏輯）
+        self.driver.screenshot()  # 假設 base.py 中有這個方法
+
+    def get_email_row_text(self):
+        """獲取 E-mail 行的文本"""
+        email_row_element = self.driver.find_element(self.EMAIL_ROW)
+        return email_row_element.text
