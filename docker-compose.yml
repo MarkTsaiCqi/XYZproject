@@ -17,24 +17,8 @@ services:
 
   report-server:
     image: nginx:alpine
+    container_name: report-server
     ports:
       - "8080:80"
     volumes:
       - ./reports:/usr/share/nginx/html:ro
-
-
-  jenkins:
-    build:
-      context: .
-      dockerfile: Dockerfile.jenkins
-    container_name: jenkins
-    user: root
-    ports:
-      - "8090:8080"
-      - "50000:50000"
-    volumes:
-      - jenkins_home:/var/jenkins_home
-      - /var/run/docker.sock:/var/run/docker.sock
-
-volumes:
-  jenkins_home:
