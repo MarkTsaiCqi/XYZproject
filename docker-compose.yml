@@ -5,7 +5,7 @@ services:
     container_name: selenium-hub
     ports:
       - "4444:4444"
-  
+
   chrome:
     image: selenium/node-chrome:4.12.1
     depends_on:
@@ -21,3 +21,17 @@ services:
       - "8080:80"
     volumes:
       - ./reports:/usr/share/nginx/html:ro
+
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    user: root
+    ports:
+      - "8090:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+
+volumes:
+  jenkins_home:

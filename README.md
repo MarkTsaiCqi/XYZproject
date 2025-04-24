@@ -88,6 +88,24 @@ SELENIUM_REMOTE_URL=http://selenium-hub:4444/wd/hub
 
 請參考 `.env.example` 並建立 `.env` 作為測試執行時的環境設定。
 
+
+---
+
+## 📊 測試報告產出流程
+
+已整合 pytest-html 自動產出測試報告，可透過 nginx 容器瀏覽。
+
+- 測試執行後報告將產生於 `reports/report.html`
+- `docker-compose.yml` 包含 `report-server`，對外開啟報告網頁
+- 瀏覽：[http://localhost:8080/report.html](http://localhost:8080/report.html)
+
+執行測試並產生報告：
+
+```bash
+./run-tests.sh
+```
+
+
 ---
 
 ## 📈 成功驗證測試跑在 Selenium Grid 上
