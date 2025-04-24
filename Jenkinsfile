@@ -32,10 +32,4 @@ pipeline {
     }
   }
 
-  post {
-    always {
-      echo "Tearing down containers..."
-      sh 'docker-compose down'
-    }
-  }
 }
