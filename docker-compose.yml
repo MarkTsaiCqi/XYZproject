@@ -22,8 +22,11 @@ services:
     volumes:
       - ./reports:/usr/share/nginx/html:ro
 
+
   jenkins:
-    image: jenkins/jenkins:lts
+    build:
+      context: .
+      dockerfile: Dockerfile.jenkins
     container_name: jenkins
     user: root
     ports:
