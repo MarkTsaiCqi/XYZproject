@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 import os
 import time
 
-def test_google_title():
+def test_xyz_home_title():
     selenium_url = os.getenv("SELENIUM_REMOTE_URL", "http://localhost:4444/wd/hub")
     options = webdriver.ChromeOptions()
     options.add_argument("--no-sandbox")

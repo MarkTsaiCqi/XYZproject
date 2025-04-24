@@ -7,4 +7,4 @@ webdriver-manager==4.0.1
 appium-python-client==3.1.1
 requests==2.31.0
 python-dotenv==1.0.1
-loguru==0.7.2 
+loguru==0.7.2
