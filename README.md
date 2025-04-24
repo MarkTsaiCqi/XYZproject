@@ -40,6 +40,15 @@ assert login_page.is_login_successful()
 
 ## 🚀 快速開始
 
+### 啟動 Selenium Grid（第一次使用時）
+
+```bash
+docker-compose up -d
+```
+
+啟動後可打開 Grid UI 檢查狀態：
+[http://localhost:4444/ui](http://localhost:4444/ui)
+
 ### 安裝相依套件
 
 ```bash
@@ -48,16 +57,10 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 執行測試（本機瀏覽器）
-
-```bash
-pytest script/test_cases/
-```
-
 ### 執行測試（透過 Selenium Grid）
 
 ```bash
-SELENIUM_REMOTE_URL=http://selenium-hub:4444/wd/hub pytest tests/test_cases/
+SELENIUM_REMOTE_URL=http://localhost:4444/wd/hub pytest script/test_xyz_home.py
 ```
 
 ---
@@ -86,6 +89,30 @@ SELENIUM_REMOTE_URL=http://selenium-hub:4444/wd/hub
 請參考 `.env.example` 並建立 `.env` 作為測試執行時的環境設定。
 
 ---
+
+## 📈 成功驗證測試跑在 Selenium Grid 上
+
+已完成首次將自動化測試案例成功部署至本機 Selenium Grid 環境：
+
+- 使用 `docker-compose.yml` 啟動 Grid （Hub + Chrome）
+- 透過 `pytest` 執行 `test_xyz_home.py`
+- 驗證頁面標題包含 "NetMind XYZ"
+- 測試經由 `http://localhost:4444/wd/hub` 成功交由 Grid 處理
+- 解決 Chrome container crash 問題：
+
+```python
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
+options.add_argument("--headless=new")
+```
+
+🔍 執行測試範例：
+
+```bash
+SELENIUM_REMOTE_URL=http://localhost:4444/wd/hub pytest script/test_xyz_home.py
+```
+
+
 
 ## 📋 授權
 
