@@ -14,7 +14,7 @@ pipeline {
 
     stage('Start Selenium Grid + Report Server') {
       steps {
-        sh 'docker-compose up -d'
+        sh 'docker-compose up -d --remove-orphans'
         sh 'sleep 5' // 稍等容器啟動穩定
       }
     }
