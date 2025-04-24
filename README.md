@@ -76,26 +76,6 @@ docker-compose up -d
 
 ---
 
-## 🧪 測試說明
-
-| 類別         | 說明                              |
-|--------------|-----------------------------------|
-| `pages/`     | Page Object 模組                  |
-| `components/`| 可重用邏輯（如登入、註冊）       |
-| `test_cases/`| 具體測試案例                      |
-
----
-
-## 💠 CI/CD 集成建議
-
-可透過 Jenkins 使用下列插件實現自動化流程：
-
-- HTML Publisher Plugin
-- Email Extension Plugin
-- Docker Pipeline Plugin
-- Selenium Grid Plugin
-
----
 
 ## 📄 環境變數（.env）
 
