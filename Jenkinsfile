@@ -1,18 +1,19 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'marktw75/xyzproject-runner:latest'
+      args '-v /var/run/docker.sock:/var/run/docker.sock'
+    }
+  }
 
   environment {
     SELENIUM_REMOTE_URL = "http://mark-i7:4444/wd/hub"
   }
 
   stages {
-    stage('Run in Docker Agent') {
+    stage('Run Tests') {
       steps {
-        script {
-          docker.image('marktw75/xyzproject-runner:latest').inside {
-            sh './run-tests.sh'
-          }
-        }
+        sh './run-tests.sh'
       }
     }
 
