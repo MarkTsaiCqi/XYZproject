@@ -1,0 +1,19 @@
+FROM python:3.12-slim
+
+# 安裝必要套件
+RUN apt-get update && apt-get install -y \
+    curl \
+    unzip \
+    && rm -rf /var/lib/apt/lists/*
+
+# 建立工作目錄
+WORKDIR /app
+
+# 複製 requirements 與專案內容
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+# 設定預設執行指令（可選）
+CMD ["pytest", "script/test_xyz_home.py", "--html=reports/report.html", "--self-contained-html"]

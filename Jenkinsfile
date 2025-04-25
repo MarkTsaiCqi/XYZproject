@@ -1,5 +1,9 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'marktw75/xyzproject-runner:latest'
+    }
+  }
 
   environment {
     SELENIUM_REMOTE_URL = "http://mark-i7:4444/wd/hub"
