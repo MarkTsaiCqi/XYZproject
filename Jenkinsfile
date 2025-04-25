@@ -1,25 +1,23 @@
 pipeline {
-  agent {
-    docker {
-      image 'marktw75/xyzproject-runner:latest'
-    }
-  }
+  agent any
 
   environment {
     SELENIUM_REMOTE_URL = "http://mark-i7:4444/wd/hub"
   }
 
   stages {
-    stage('Run Tests') {
+    stage('Run in Docker Agent') {
       steps {
-        echo '🔍 Running tests on remote Selenium Grid...'
-        sh './run-tests.sh'
+        script {
+          docker.image('marktw75/xyzproject-runner:latest').inside {
+            sh './run-tests.sh'
+          }
+        }
       }
     }
 
     stage('Publish HTML Report') {
       steps {
-        echo '📄 Publishing pytest HTML report...'
         publishHTML(target: [
           allowMissing: false,
           alwaysLinkToLastBuild: true,
