@@ -2,24 +2,20 @@ pipeline {
   agent any
 
   environment {
-    SELENIUM_REMOTE_URL = "http://localhost:4444/wd/hub"
+    SELENIUM_REMOTE_URL = "http://mark-i7:4444/wd/hub"
   }
 
   stages {
-    stage('Start Selenium Grid + Report Server') {
-      steps {
-        sh 'docker-compose up -d --remove-orphans'
-      }
-    }
-
     stage('Run Tests') {
       steps {
+        echo '🔍 Running tests on remote Selenium Grid...'
         sh './run-tests.sh'
       }
     }
 
     stage('Publish HTML Report') {
       steps {
+        echo '📄 Publishing pytest HTML report...'
         publishHTML(target: [
           allowMissing: false,
           alwaysLinkToLastBuild: true,
@@ -31,5 +27,4 @@ pipeline {
       }
     }
   }
-
 }
