@@ -30,4 +30,22 @@ pipeline {
       }
     }
   }
+
+  post {
+    always {
+emailext(
+      subject: " [XYZproject] 測試報告 - Build #${env.BUILD_NUMBER}",
+      body: """Hi Team,
+
+自動化測試完成，請查閱以下測試報告：
+
+🔗 Report: ${env.BUILD_URL}Selenium_20Test_20Report/
+
+Regards,
+Jenkins
+""",
+      recipientProviders: [[$class: 'DevelopersRecipientProvider']],
+    )
+    }
+  }
 }
