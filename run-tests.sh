@@ -6,7 +6,7 @@ export SELENIUM_REMOTE_URL
 
 mkdir -p reports
 
-pytest script/test_xyz_home.py \
+pytest script/test_xyz_home.py script/test_xyz_login_email.py \
   --html=reports/report.html \
   --self-contained-html \
   --maxfail=1 --disable-warnings -v
