@@ -102,16 +102,17 @@ def pytest_runtest_makereport(item, call):
         print(f"\n⚠️  Screenshot failed: {exc}")
         return
 
-    # 以 base64 嵌入 pytest-html（--self-contained-html 可用）
+    # 以 HTML img tag 嵌入 pytest-html（相容 3.x / 4.x）
     try:
         from pytest_html import extras as html_extras
         with open(png_path, "rb") as f:
             img_b64 = base64.b64encode(f.read()).decode()
         extra = getattr(report, "extras", [])
         extra.append(
-            html_extras.image(
-                f"data:image/png;base64,{img_b64}",
-                name="Failure Screenshot",
+            html_extras.html(
+                f'<div><b>Failure Screenshot</b><br>'
+                f'<img src="data:image/png;base64,{img_b64}" '
+                f'style="max-width:1200px;border:1px solid #ccc;margin-top:6px"/></div>'
             )
         )
         report.extras = extra
