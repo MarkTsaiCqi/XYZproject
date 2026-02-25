@@ -107,13 +107,13 @@ def pytest_runtest_makereport(item, call):
         from pytest_html import extras as html_extras
         with open(png_path, "rb") as f:
             img_b64 = base64.b64encode(f.read()).decode()
-        extra = getattr(report, "extra", [])
+        extra = getattr(report, "extras", [])
         extra.append(
             html_extras.image(
                 f"data:image/png;base64,{img_b64}",
                 name="Failure Screenshot",
             )
         )
-        report.extra = extra
+        report.extras = extra
     except Exception as exc:
         print(f"⚠️  Embed screenshot failed: {exc}")

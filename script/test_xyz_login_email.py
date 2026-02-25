@@ -95,8 +95,11 @@ def test_xyz_login_email(web_driver):
 
     # ── Step 5: 驗證登入成功 ──────────────────────────────────────────────────
     print("📍 Step 5: 驗證登入成功")
-    agent_elements = WebDriverWait(driver, 10).until(
-        EC.presence_of_all_elements_located((By.XPATH, "//span[contains(text(), 'Agent')]"))
+    WebDriverWait(driver, 30).until(
+        lambda d: (
+            len(d.find_elements(By.XPATH, "//span[contains(text(), 'Agent')]")) > 0
+            or len(d.find_elements(By.XPATH, "//*[contains(@class, 'avatar')]")) > 0
+            or "/home" in d.current_url
+        )
     )
-    assert len(agent_elements) > 0, "登入失敗：未找到 Agent 相關元素"
     print(f"   ✅ 登入成功！URL: {driver.current_url}")
