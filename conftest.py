@@ -60,6 +60,7 @@ def _make_driver(options: webdriver.ChromeOptions):
 def web_driver():
     """Desktop Chrome（headless）。用於首頁、email 登入等測試。"""
     driver = _make_driver(_build_options(mobile=False, headless=True))
+    driver.set_window_size(1920, 1080)
     yield driver
     driver.quit()
 

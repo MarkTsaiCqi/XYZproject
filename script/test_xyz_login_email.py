@@ -94,12 +94,14 @@ def test_xyz_login_email(web_driver):
     time.sleep(3)
 
     # ── Step 5: 驗證登入成功 ──────────────────────────────────────────────────
+    # 點 Start Chatting 觸發登入 → 登入後會跳回聊天頁，URL 不再是 TARGET_URL
     print("📍 Step 5: 驗證登入成功")
     WebDriverWait(driver, 30).until(
         lambda d: (
-            len(d.find_elements(By.XPATH, "//span[contains(text(), 'Agent')]")) > 0
+            d.current_url != TARGET_URL
+            or len(d.find_elements(By.XPATH, "//span[contains(text(), 'Agent')]")) > 0
             or len(d.find_elements(By.XPATH, "//*[contains(@class, 'avatar')]")) > 0
-            or "/home" in d.current_url
         )
     )
+    assert "login" not in driver.current_url.lower(), f"登入失敗，停在登入頁: {driver.current_url}"
     print(f"   ✅ 登入成功！URL: {driver.current_url}")
