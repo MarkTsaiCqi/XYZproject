@@ -102,16 +102,16 @@ def pytest_runtest_makereport(item, call):
         print(f"\n⚠️  Screenshot failed: {exc}")
         return
 
-    # 以 HTML img tag 嵌入 pytest-html（相容 3.x / 4.x）
+    # 用相對路徑嵌入截圖（避開 Jenkins CSP 對 data: URI 的限制）
     try:
         from pytest_html import extras as html_extras
-        with open(png_path, "rb") as f:
-            img_b64 = base64.b64encode(f.read()).decode()
+        reports_dir = os.path.join(os.path.dirname(__file__), "reports")
+        rel_path = os.path.relpath(png_path, reports_dir).replace(os.sep, "/")
         extra = getattr(report, "extras", [])
         extra.append(
             html_extras.html(
                 f'<div><b>Failure Screenshot</b><br>'
-                f'<img src="data:image/png;base64,{img_b64}" '
+                f'<img src="{rel_path}" '
                 f'style="max-width:1200px;border:1px solid #ccc;margin-top:6px"/></div>'
             )
         )
