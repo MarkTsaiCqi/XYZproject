@@ -1,7 +1,10 @@
 import json
 import time
 from selenium import webdriver
-from appium import webdriver as appdriver
+try:
+    from appium import webdriver as appdriver
+except ModuleNotFoundError:
+    appdriver = None
 import config
 import logging
 import os
@@ -13,6 +16,32 @@ from base.DirAndTime import getCurrentTime
 class GetDriver:
     __app_driver = None
     __web_driver = None
+
+    # 建立 Chrome 手機模擬 Driver（每次建立新 driver，不使用 singleton）
+    @classmethod
+    def create_mobile_web_driver(cls, device=None):
+        if device is None:
+            device = {
+                "deviceMetrics": {"width": 393, "height": 851, "pixelRatio": 2.75, "touch": True},
+                "userAgent": (
+                    "Mozilla/5.0 (Linux; Android 11; Pixel 5) "
+                    "AppleWebKit/537.36 (KHTML, like Gecko) "
+                    "Chrome/144.0.0.0 Mobile Safari/537.36"
+                ),
+            }
+        options = webdriver.ChromeOptions()
+        options.add_experimental_option("mobileEmulation", device)
+        options.add_argument("--disable-notifications")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        # 降低自動化特徵訊號，避免 Google 擋登入
+        options.add_argument("--disable-blink-features=AutomationControlled")
+        options.add_experimental_option("excludeSwitches", ["enable-automation"])
+        options.add_experimental_option("useAutomationExtension", False)
+        selenium_url = os.getenv("SELENIUM_REMOTE_URL")
+        if selenium_url:
+            return webdriver.Remote(command_executor=selenium_url, options=options)
+        return webdriver.Chrome(options=options)
 
     # 获取Web Driver
     @classmethod

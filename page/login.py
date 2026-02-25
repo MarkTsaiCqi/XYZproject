@@ -6,11 +6,17 @@ from base.base import BaseAction
     封装登录页面的可操作元素
 """
 # 定位器
+# 首頁改版後，觸發登入 popup 的入口改為 Start Chatting / Create Agent
+LOGIN_TRIGGER_START_CHATTING = By.XPATH, "//*[contains(text(), 'Start Chatting') or contains(text(), 'Start chatting')]"
+LOGIN_TRIGGER_CREATE_AGENT   = By.XPATH, "//*[contains(text(), 'Create Agent') or contains(text(), 'Create agent')]"
+# 舊版保留（fallback）
 LOGIN_LINK = By.XPATH, "//span[contains(text(), 'Log in')]"
 LOGIN_EMAIL_INPUT = By.CSS_SELECTOR, "input[placeholder='example@site.com']"
 LOGIN_PASSWORD_INPUT = By.CSS_SELECTOR, "input[placeholder='Password']"
-# 新增：email 輸入後的箭頭按鈕
+# email 輸入後的箭頭按鈕
 EMAIL_NEXT_BUTTON = By.CSS_SELECTOR, "button.ant-btn-primary .anticon-arrow-right"
+# 第三方登入按鈕
+GOOGLE_LOGIN_BUTTON = By.XPATH, "//button[contains(., 'Google')]"
 
 class LoginPage:
     def __init__(self, driver):
@@ -40,9 +46,13 @@ class LoginPage:
         """執行 Email 登入流程"""
         self.click_login_link()
         self.input_email(email)
-        self.click_email_next()  # 新增：點擊箭頭按鈕
+        self.click_email_next()
         self.input_password(password)
         self.submit_login_with_enter()
+
+    def click_google_login(self):
+        """點擊 Google 第三方登入按鈕"""
+        self.driver.base_click(GOOGLE_LOGIN_BUTTON)
 
     # 定義元素定位器
     CREATE_AGENT_BUTTON = By.XPATH, "//span[contains(text(), 'Create Agent')]"
