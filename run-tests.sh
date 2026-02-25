@@ -6,6 +6,9 @@ export SELENIUM_REMOTE_URL
 
 mkdir -p reports
 
-pytest script/test_xyz_home.py script/test_xyz_login_email.py script/test_google_login_mobile.py \
+pytest script/test_xyz_home.py \
+       script/test_xyz_login_email.py \
+       script/test_google_login_mobile.py \
+       script/test_google_login_web.py \
   --html=reports/report.html \
   --disable-warnings -v
