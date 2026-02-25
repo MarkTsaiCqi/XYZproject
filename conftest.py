@@ -97,6 +97,10 @@ def pytest_runtest_makereport(item, call):
     png_path = os.path.join(SCREENSHOTS_DIR, f"{safe_name}_{timestamp}.png")
 
     try:
+        # 如果 driver 目前停在已關閉的 popup 視窗，先切回第一個可用視窗
+        handles = driver.window_handles
+        if handles:
+            driver.switch_to.window(handles[0])
         driver.save_screenshot(png_path)
         print(f"\n📸 Screenshot: {png_path}")
     except Exception as exc:

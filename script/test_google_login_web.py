@@ -107,10 +107,15 @@ def test_google_login_web(web_driver):
     print("   ✅ 密碼送出")
     time.sleep(3)
 
-    # ── Step 6: 切回主視窗（popup 模式）──────────────────────────────────────
-    if len(driver.window_handles) > 1:
-        driver.switch_to.window(main_window)
-        print("📍 Step 6: 切回 XYZ 主視窗")
+    # ── Step 6: 等待 popup 關閉，切回主視窗 ──────────────────────────────────
+    print("📍 Step 6: 等待 popup 關閉，切回主視窗")
+    try:
+        WebDriverWait(driver, 15).until(lambda d: len(d.window_handles) == 1)
+        print("   popup 已關閉")
+    except Exception:
+        print("   等待 popup 關閉超時，強制切換")
+    driver.switch_to.window(main_window)
+    print(f"   已切回主視窗，handles: {len(driver.window_handles)}")
 
     # ── Step 7: 驗證登入成功 ──────────────────────────────────────────────────
     print("📍 Step 7: 驗證登入成功")
