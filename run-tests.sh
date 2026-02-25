@@ -9,4 +9,4 @@ mkdir -p reports
 pytest script/test_xyz_home.py script/test_xyz_login_email.py script/test_google_login_mobile.py \
   --html=reports/report.html \
   --self-contained-html \
-  --maxfail=1 --disable-warnings -v
+  --disable-warnings -v

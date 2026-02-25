@@ -59,16 +59,27 @@ def test_xyz_login_email(web_driver):
     print(f"   ✅ Email 已輸入: {_EMAIL}")
     time.sleep(1)
 
-    # ── Step 3: 點擊下一步 ────────────────────────────────────────────────────
-    print("📍 Step 3: 點擊下一步")
-    try:
-        next_btn = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.CSS_SELECTOR, "button.ant-btn-primary .anticon-arrow-right"))
-        )
-        next_btn.click()
-    except Exception:
-        driver.find_element(By.CSS_SELECTOR, "button.ant-btn-primary").click()
-    print("   ✅ 下一步已點擊")
+    # ── Step 3: 送出 Email（點擊箭頭按鈕，或 fallback 到 Enter）────────────
+    print("📍 Step 3: 送出 Email")
+    next_btn_selectors = [
+        (By.CSS_SELECTOR, "button.ant-btn-primary .anticon-arrow-right"),
+        (By.CSS_SELECTOR, "button.ant-btn-primary"),
+        (By.XPATH, "//button[@type='submit']"),
+        (By.XPATH, "//button[contains(@class, 'primary')]"),
+    ]
+    submitted = False
+    for by, sel in next_btn_selectors:
+        try:
+            btn = WebDriverWait(driver, 3).until(EC.element_to_be_clickable((by, sel)))
+            btn.click()
+            submitted = True
+            print(f"   ✅ 已點擊: {sel}")
+            break
+        except Exception:
+            continue
+    if not submitted:
+        email_input.send_keys(Keys.RETURN)
+        print("   ✅ Enter 鍵送出")
     time.sleep(2)
 
     # ── Step 4: 輸入密碼 ──────────────────────────────────────────────────────
