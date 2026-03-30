@@ -10,5 +10,6 @@ pytest script/test_xyz_home.py \
        script/test_xyz_login_email.py \
        script/test_google_login_mobile.py \
        script/test_google_login_web.py \
+       script_allure/test1_login.py \
   --html=reports/report.html \
   --disable-warnings -v
