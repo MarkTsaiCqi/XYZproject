@@ -13,8 +13,8 @@ LOGIN_TRIGGER = By.XPATH, "//*[contains(text(), 'Start Chatting') or contains(te
 
 # Modal 內元素
 LOGIN_EMAIL_INPUT  = By.CSS_SELECTOR, "input[placeholder='example@site.com']"
-# 箭頭按鈕是 email input 的 following-sibling button
-EMAIL_NEXT_BUTTON  = By.XPATH, "//input[@placeholder='example@site.com']/following-sibling::button"
+# 箭頭按鈕在 input 旁的 div wrapper 內（MaterialInput renderSuffix），用 anticon-arrow-right 定位
+EMAIL_NEXT_BUTTON  = By.XPATH, "//dialog//button[.//*[contains(@class,'anticon-arrow-right')]]"
 LOGIN_PASSWORD_INPUT = By.CSS_SELECTOR, "input[placeholder='Password']"
 MODAL_CLOSE_BUTTON = By.XPATH, "//dialog//button[.//img] | //div[@role='dialog']//button[contains(@class,'close')]"
 EMAIL_ERROR_MSG    = By.XPATH, "//*[contains(text(),'format error') or contains(text(),'Mailbox')]"
