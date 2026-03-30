@@ -11,23 +11,25 @@ from base.base import BaseAction
 # Modal 觸發入口（現版首頁用 Start Chatting）
 LOGIN_TRIGGER = By.XPATH, "//*[contains(text(), 'Start Chatting') or contains(text(), 'Start chatting') or contains(text(), 'Create Agent')]"
 
-# Modal 內元素
-LOGIN_EMAIL_INPUT  = By.CSS_SELECTOR, "input[placeholder='example@site.com']"
-# 箭頭按鈕在 input 旁的 div wrapper 內（MaterialInput renderSuffix），用 anticon-arrow-right 定位
-EMAIL_NEXT_BUTTON  = By.XPATH, "//dialog//button[.//*[contains(@class,'anticon-arrow-right')]]"
-LOGIN_PASSWORD_INPUT = By.CSS_SELECTOR, "input[placeholder='Password']"
-MODAL_CLOSE_BUTTON = By.XPATH, "//dialog//button[.//img] | //div[@role='dialog']//button[contains(@class,'close')]"
-EMAIL_ERROR_MSG    = By.XPATH, "//*[contains(text(),'format error') or contains(text(),'Mailbox')]"
-MODAL_DIALOG       = By.CSS_SELECTOR, "dialog[open], [role='dialog']"
+# Dialog 實際渲染為 data-slot="dialog-content" 的 div（非原生 <dialog> tag）
+MODAL_DIALOG       = By.CSS_SELECTOR, "[data-slot='dialog-content']"
+MODAL_CLOSE_BUTTON = By.CSS_SELECTOR, "[data-slot='dialog-close']"
 
-# 登入後出現的元素（logged-in indicator）
-# 登入成功後「Start Chatting」消失，header 右側會出現使用者 avatar/icon
+# Modal 內元素
+LOGIN_EMAIL_INPUT    = By.CSS_SELECTOR, "input[placeholder='example@site.com']"
+# 箭頭按鈕：MaterialInput renderSuffix 裡的 Button（variant=primary），含 anticon-arrow-right
+EMAIL_NEXT_BUTTON    = By.XPATH, "//*[@data-slot='dialog-content']//button[.//*[contains(@class,'anticon-arrow-right')]]"
+LOGIN_PASSWORD_INPUT = By.CSS_SELECTOR, "input[placeholder='Password']"
+# 錯誤訊息：MaterialInput 錯誤區塊的文字 div
+EMAIL_ERROR_MSG      = By.XPATH, "//*[@data-slot='dialog-content']//*[contains(text(),'format error') or contains(text(),'Mailbox')]"
+
+# 登入後 Start Chatting 消失即代表已登入
 LOGGED_IN_INDICATOR = By.XPATH, "//main[not(.//*[contains(text(),'Start Chatting')])]"
 
-# 第三方登入
-GOOGLE_LOGIN_BUTTON    = By.XPATH, "//dialog//*[contains(text(),'Google')]/ancestor::*[@role='button' or self::button][1]"
-MICROSOFT_LOGIN_BUTTON = By.XPATH, "//dialog//*[contains(text(),'Microsoft')]/ancestor::*[@role='button' or self::button][1]"
-GITHUB_LOGIN_BUTTON    = By.XPATH, "//dialog//*[contains(text(),'GitHub')]/ancestor::*[@role='button' or self::button][1]"
+# 第三方登入（在 dialog-content 內找文字的父層可點擊元素）
+GOOGLE_LOGIN_BUTTON    = By.XPATH, "//*[@data-slot='dialog-content']//*[contains(text(),'Google')]/ancestor::div[@class and contains(@class,'cursor-pointer')][1]"
+MICROSOFT_LOGIN_BUTTON = By.XPATH, "//*[@data-slot='dialog-content']//*[contains(text(),'Microsoft')]/ancestor::div[@class and contains(@class,'cursor-pointer')][1]"
+GITHUB_LOGIN_BUTTON    = By.XPATH, "//*[@data-slot='dialog-content']//*[contains(text(),'GitHub')]/ancestor::div[@class and contains(@class,'cursor-pointer')][1]"
 
 
 class LoginPage:

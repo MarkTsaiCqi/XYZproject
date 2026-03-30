@@ -87,14 +87,14 @@ class TestLoginUI:
         assert web_driver.find_element(By.CSS_SELECTOR, "input[placeholder='example@site.com']")
         for provider in ["Wallet", "Google", "Microsoft", "GitHub"]:
             assert web_driver.find_element(
-                By.XPATH, f"//dialog//*[contains(text(),'{provider}')]"
+                By.XPATH, f"//*[@data-slot='dialog-content']//*[contains(text(),'{provider}')]"
             ), f"{provider} button not found in modal"
 
     def test_D002_privacy_policy_link(self, login_page, web_driver):
         """D-002：Privacy Policy 連結應可開啟對應頁面"""
         from selenium.webdriver.common.by import By
         login_page.open_login_modal()
-        link = web_driver.find_element(By.XPATH, "//dialog//a[contains(text(),'Privacy')]")
+        link = web_driver.find_element(By.XPATH, "//*[@data-slot='dialog-content']//a[contains(text(),'Privacy')]")
         href = link.get_attribute("href")
         assert "Privacy" in href or "privacy" in href, f"Unexpected Privacy Policy URL: {href}"
 
@@ -102,6 +102,6 @@ class TestLoginUI:
         """D-003：Terms of Service 連結應可開啟對應頁面"""
         from selenium.webdriver.common.by import By
         login_page.open_login_modal()
-        link = web_driver.find_element(By.XPATH, "//dialog//a[contains(text(),'Terms')]")
+        link = web_driver.find_element(By.XPATH, "//*[@data-slot='dialog-content']//a[contains(text(),'Terms')]")
         href = link.get_attribute("href")
         assert "Terms" in href or "terms" in href, f"Unexpected Terms of Service URL: {href}"
