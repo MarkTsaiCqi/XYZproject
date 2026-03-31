@@ -13,8 +13,8 @@ LOGIN_TRIGGER = By.XPATH, "//*[contains(text(), 'Start Chatting') or contains(te
 
 # Dialog 實際渲染為 data-slot="dialog-content" 的 div（非原生 <dialog> tag）
 MODAL_DIALOG       = By.CSS_SELECTOR, "[data-slot='dialog-content']"
-# Close 按鈕：DialogPrimitive.Close asChild > Button ghost，內有 <span class="sr-only">Close</span>
-MODAL_CLOSE_BUTTON = By.XPATH, "//*[@data-slot='dialog-content']//button[.//span[normalize-space()='Close']]"
+# Close 按鈕：絕對定位在 modal 右上角，是 dialog-content 內唯一有 absolute class 的 button
+MODAL_CLOSE_BUTTON = By.CSS_SELECTOR, "[data-slot='dialog-content'] button.absolute"
 
 # Modal 內元素
 LOGIN_EMAIL_INPUT    = By.CSS_SELECTOR, "input[placeholder='example@site.com']"
